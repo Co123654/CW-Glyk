@@ -38,7 +38,6 @@ public class HurtPlayer : MonoBehaviour
                 health.HurtPlayer(damage * health.damageResitance);
 
                 waitToHurt = 2f;
-                Debug.Log(health.currentHealth);
             }
         }
     }

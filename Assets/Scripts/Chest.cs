@@ -38,9 +38,16 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetKey("e") && inTrigger)
         {
-            var itemToSpawn = Random.Range(0, items.Length);
-            var spawnedItem = Instantiate(items[itemToSpawn], transform.position, transform.rotation);
-            Destroy(gameObject);
+            animator.SetBool("Opening", true);
+            Invoke("OpenChest", 0.4f);
         }
+    }
+
+    void OpenChest()
+    {
+        var itemToSpawn = Random.Range(0, items.Length);
+        var spawnedItem = Instantiate(items[itemToSpawn], transform.position, transform.rotation);
+        Destroy(gameObject);
+
     }
 }
