@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public float speed;
     private float currentSpeed;
 
+    private float attackTime = 0.25f;
+    private float attackCounter = 0.25f;
+    private bool isAttacking = false;
+
     private HealthManager health;
 
     // Start is called before the first frame update
@@ -43,6 +47,24 @@ public class Player : MonoBehaviour
             health.canTakeDamage = false;
             speed = speed * 1.5f;
             Invoke("Roll", 0.33f);
+        }
+
+        if(isAttacking)
+        {
+            rb.velocity = Vector2.zero;
+            attackCounter -= Time.deltaTime;
+            if(attackCounter <= 0)
+            {
+                animator.SetBool("isAttacking", false);
+                isAttacking = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false)
+        {
+            attackCounter = attackTime;
+            animator.SetBool("isAttacking", true);
+            isAttacking = true;
         }
     }
 

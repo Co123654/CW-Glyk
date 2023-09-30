@@ -69,7 +69,7 @@ public class HealthManager : MonoBehaviour
         flashActive = true;
         flashCounter = flashLength;
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
