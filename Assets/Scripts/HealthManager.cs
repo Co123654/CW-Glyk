@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     public float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer playerSprite;
+    public bool mirrorShield = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +63,13 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void HurtPlayer(float damageToGive)
+    public void HurtPlayer(float damageToGive, EnemyHealthManager enemy)
     {
         currentHealth -= Mathf.Round(damageToGive);
+        if (mirrorShield)
+        {
+            enemy.currentHealth -= Mathf.RoundToInt(damageToGive / 10);
+        }
 
         flashActive = true;
         flashCounter = flashLength;

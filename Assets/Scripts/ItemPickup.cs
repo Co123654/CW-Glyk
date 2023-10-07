@@ -14,6 +14,8 @@ public class ItemPickup : MonoBehaviour
     private HealthManager health;
     public GameObject player;
 
+    public GameObject holyAura;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Item")
@@ -35,7 +37,6 @@ public class ItemPickup : MonoBehaviour
     {
         if(Input.GetKeyDown("e") && insideCollider)
         {
-            Debug.Log("Break");
             if(itemActivate == "Small Health Potion")
             {
                 health = FindObjectOfType<HealthManager>();
@@ -71,6 +72,25 @@ public class ItemPickup : MonoBehaviour
             else if(itemActivate == "Light Foot")
             {
                 player.GetComponent<Player>().speed = player.GetComponent<Player>().speed * 1.25f;
+                Script.Destroy();
+            }
+            else if(itemActivate == "Holy Pendant")
+            {
+                holyAura.SetActive(true);
+                Script.Destroy();
+            }
+            else if(itemActivate == "Mirror Shield")
+            {
+                health = FindObjectOfType<HealthManager>();
+                health.mirrorShield = true;
+                if (health.damageResitance == 1)
+                {
+                    health.damageResitance = health.damageResitance - 0.1f;
+                }
+                else
+                {
+                    health.damageResitance = health.damageResitance * 0.95f;
+                }
                 Script.Destroy();
             }
         }
