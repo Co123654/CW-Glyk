@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
+    public string weapon = "Sword (UnityEngine.GameObject)";
+
     public float speed;
+    public int damage = 2;
     private float currentSpeed;
 
     private float attackTime = 0.25f;
@@ -60,11 +63,22 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false)
+        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false && weapon == "Sword (UnityEngine.GameObject)")
         {
             attackCounter = attackTime;
             animator.SetBool("isAttacking", true);
+            animator.SetInteger("Weapon", 0);
             isAttacking = true;
+        }
+        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false && weapon == "Spear (UnityEngine.GameObject)")
+        {
+            /*
+            attackCounter = attackTime;
+            animator.SetBool("isAttacking", true);
+            animator.SetInteger("Weapon", 1);
+            isAttacking = true;
+            */
+            Debug.Log("Spear Attack");
         }
     }
 

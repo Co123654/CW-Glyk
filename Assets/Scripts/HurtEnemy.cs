@@ -6,6 +6,8 @@ public class HurtEnemy : MonoBehaviour
 {
     public int damageToGive = 2;
 
+    private Player player;
+
     bool AOE = false;
 
     public float waitToHurt = 2f;
@@ -13,13 +15,13 @@ public class HurtEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        damageToGive = player.damage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
