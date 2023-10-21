@@ -168,7 +168,6 @@ public class ItemPickup : MonoBehaviour
 
     void DropWeapon(GameObject NewWeapon)
     {
-        Instantiate(OldWeapon, new Vector2(player.transform.position.x, player.transform.position.y), Quaternion.identity);
         if(OldWeapon != NewWeapon)
         {
             if(NewWeapon == Spear)
@@ -180,8 +179,17 @@ public class ItemPickup : MonoBehaviour
                 player.GetComponent<Player>().damage++;
             }
         }
+        if (OldWeapon != null)
+        {
+            Instantiate(OldWeapon, new Vector2(player.transform.position.x, player.transform.position.y), Quaternion.identity);
+        }
+        else
+        {
+            OldWeapon = NewWeapon;
+            player.GetComponent<Player>().weapon = NewWeapon.ToString();
+            Script.Destroy();
+        }
         OldWeapon = NewWeapon;
         player.GetComponent<Player>().weapon = NewWeapon.ToString();
-        //Change weapons, somehow.
     }
 }
