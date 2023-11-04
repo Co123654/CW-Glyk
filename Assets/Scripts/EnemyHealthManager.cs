@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class EnemyHealthManager : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class EnemyHealthManager : MonoBehaviour
     public float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
+    public Slider healthBar;
+    public TMP_Text hpText;
+    public GameObject loot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,9 @@ public class EnemyHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+        hpText.text = currentHealth + "/" + maxHealth;
         if (flashActive)
         {
             if (flashCounter > flashLength * 0.99f)
@@ -67,6 +75,7 @@ public class EnemyHealthManager : MonoBehaviour
         flashCounter = flashLength;
         if (currentHealth <= 0)
         {
+            Instantiate(loot, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

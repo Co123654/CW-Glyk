@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
 
+
+    public int gold;
+
     private HealthManager health;
 
     // Start is called before the first frame update

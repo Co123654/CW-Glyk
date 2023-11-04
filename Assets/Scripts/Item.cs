@@ -6,6 +6,8 @@ public class Item : MonoBehaviour
 {
     public string itemName = "";
     public GameObject interactKey;
+    public bool isShopItem;
+    public int cost;
 
     public void Interact()
     {
