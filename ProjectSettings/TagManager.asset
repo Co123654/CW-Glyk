@@ -7,6 +7,7 @@ TagManager:
   - Item
   - Enemy
   - Attack
+  - Drop
   layers:
   - Default
   - TransparentFX

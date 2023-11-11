@@ -15,10 +15,12 @@ public class EnemyHealthManager : MonoBehaviour
     public Slider healthBar;
     public TMP_Text hpText;
     public GameObject loot;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         currentHealth = maxHealth;
         enemySprite = GetComponent<SpriteRenderer>();
     }
@@ -76,6 +78,7 @@ public class EnemyHealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Instantiate(loot, transform.position, transform.rotation);
+            player.exp += Random.Range(50, 250);
             Destroy(gameObject);
         }
     }

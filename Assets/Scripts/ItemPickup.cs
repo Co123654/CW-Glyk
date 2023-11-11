@@ -35,6 +35,13 @@ public class ItemPickup : MonoBehaviour
             isShopItem = collision.GetComponent<Item>().isShopItem;
             cost = collision.GetComponent<Item>().cost;
         }
+        else if(collision.tag == "Drop")
+        {
+            Script = collision.GetComponent<Item>();
+            player.GetComponent<Player>().gold = player.GetComponent<Player>().gold + Random.Range(1, 5);
+            Script.Destroy();
+           
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,6 +56,7 @@ public class ItemPickup : MonoBehaviour
         {
             if (isShopItem && cost <= player.GetComponent<Player>().gold || !isShopItem)
             {
+                player.GetComponent<Player>().gold = player.GetComponent<Player>().gold - cost;
                 cost = 0;
                 isShopItem = false;
                 switch (itemActivate)

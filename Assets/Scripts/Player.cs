@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     public int gold;
 
+    public int exp = 0;
+
     private HealthManager health;
 
     // Start is called before the first frame update

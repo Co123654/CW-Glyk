@@ -5,9 +5,9 @@ Enemy ai
 Level design
 More items
 Finish the levelling system
-Shop system
 Room layouts/designs
 Special events (i.e a room with a healing pool in the middle)
-Enemy drops
 Polish animations
 Enemy attacks
+Paticle systems/animations for interactions
+Save/load system

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8542381388950003362}
   - component: {fileID: 1514844441332120851}
   - component: {fileID: 7171819235130787236}
+  - component: {fileID: 6594124866824068988}
   m_Layer: 0
   m_Name: GoldLoot
-  m_TagString: Untagged
+  m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1514844441332120851
 SpriteRenderer:
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6594124866824068988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324131910851477504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6852c9db8dc34674e93a6dfb7670d045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Gold
+  interactKey: {fileID: 0}
+  isShopItem: 0
+  cost: 0
