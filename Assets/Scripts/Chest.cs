@@ -41,13 +41,15 @@ public class Chest : MonoBehaviour
             animator.SetBool("Opening", true);
             Invoke("OpenChest", 0.4f);
         }
+
     }
 
     void OpenChest()
     {
         var itemToSpawn = Random.Range(0, items.Length);
         var spawnedItem = Instantiate(items[itemToSpawn], transform.position, transform.rotation);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        animator.SetBool("Opening", false);
 
     }
 }

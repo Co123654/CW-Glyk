@@ -11,6 +11,7 @@ public class Save : MonoBehaviour
     public Player player;
     public HealthManager health;
     public CameraController controller;
+    public ChestLoader chest;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +37,9 @@ public class Save : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F5))
+        if (Input.GetKeyUp(KeyCode.F))
         {
+            chest.Save();
             playerFile.Add("exp", player.exp);
             playerFile.Add("speed", player.speed);
             playerFile.Add("damage", player.damage);
@@ -49,17 +51,20 @@ public class Save : MonoBehaviour
             playerFile.Add("mirrorshield", health.mirrorShield);
             playerFile.Add("mincampos", controller.minPos);
             playerFile.Add("maxcampos", controller.maxPos);
+            playerFile.Add("morechests", chest.morechests);
+            playerFile.Add("chests", chest.chests);
 
             playerFile.Save();
             Debug.Log("Saved!");
         }
 
-        if(Input.GetKeyUp(KeyCode.F9))
+        if(Input.GetKeyUp(KeyCode.G))
         {
+            //string currentSceneName = SceneManager.GetActiveScene().name;
+            //SceneManager.LoadScene(currentSceneName);
+
             if(playerFile.Load())
             {
-                string currentSceneName = SceneManager.GetActiveScene().name;
-                SceneManager.LoadScene(currentSceneName);
 
                 player.exp = playerFile.GetInt("exp");
                 player.speed = playerFile.GetFloat("speed");
@@ -72,8 +77,17 @@ public class Save : MonoBehaviour
                 health.mirrorShield = playerFile.GetBool("mirrorshield");
                 controller.minPos = playerFile.GetUnityVector2("mincampos");
                 controller.maxPos = playerFile.GetUnityVector2("maxcampos");
+                chest.morechests = playerFile.GetArray<bool>("morechests");
+                chest.Load();
                 Debug.Log("Loaded!");
             }
+        }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            playerFile.Delete();
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
     }
 }

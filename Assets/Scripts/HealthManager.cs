@@ -18,7 +18,6 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         playerSprite = GetComponent<SpriteRenderer>();
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame

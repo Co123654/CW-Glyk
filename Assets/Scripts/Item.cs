@@ -21,6 +21,6 @@ public class Item : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
