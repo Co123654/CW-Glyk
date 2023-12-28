@@ -55,6 +55,7 @@ public class Save : MonoBehaviour
             playerFile.Add("chests", chest.chests);
 
             playerFile.Save();
+            Debug.Log(Application.persistentDataPath);
             Debug.Log("Saved!");
         }
 
