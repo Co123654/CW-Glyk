@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     public float speed;
     public int damage = 2;
     private float currentSpeed;
+
+    public TMP_Text goldText;
 
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
@@ -37,7 +40,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        goldText.text = "Gold: " + gold.ToString();
+
+        //I'm too lazy to add an in-game gold counter at the moment
+        Debug.Log(gold);
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed * Time.deltaTime;
         animator.SetFloat("moveX", rb.velocity.x);
         animator.SetFloat("moveY", rb.velocity.y);
