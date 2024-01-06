@@ -16,8 +16,10 @@ public class Save : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerFile = new EasyFileSave();
-        playerFile.suppressWarning = false;
+        playerFile = new EasyFileSave
+        {
+            suppressWarning = false
+        };
         if (playerFile.Load())
         {
             player.exp = playerFile.GetInt("exp");
@@ -54,7 +56,7 @@ public class Save : MonoBehaviour
             playerFile.Add("morechests", chest.morechests);
             playerFile.Add("chests", chest.chests);
 
-            playerFile.Save();
+            _ = playerFile.Save();
             Debug.Log(Application.persistentDataPath);
             Debug.Log("Saved!");
         }

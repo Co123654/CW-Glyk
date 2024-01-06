@@ -26,7 +26,7 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Item")
+        if (collision.CompareTag("Item"))
         {
             Script = collision.GetComponent<Item>();
             Script.Interact();
@@ -35,7 +35,7 @@ public class ItemPickup : MonoBehaviour
             isShopItem = collision.GetComponent<Item>().isShopItem;
             cost = collision.GetComponent<Item>().cost;
         }
-        else if(collision.tag == "Drop")
+        else if (collision.CompareTag("Drop"))
         {
             Script = collision.GetComponent<Item>();
             player.GetComponent<Player>().gold = player.GetComponent<Player>().gold + Random.Range(1, 5);
@@ -52,7 +52,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown("e") && insideCollider)
+        if(Input.GetKeyDown(KeyCode.E) && insideCollider)
         {
             if (isShopItem && cost <= player.GetComponent<Player>().gold || !isShopItem)
             {
@@ -69,24 +69,24 @@ public class ItemPickup : MonoBehaviour
                         }
                         else
                         {
-                            health.currentHealth = health.currentHealth + 10;
+                            health.currentHealth += 10;
                         }
                         Script.Destroy();
                         break;
                     case "Hollow Heart":
                         health = FindObjectOfType<HealthManager>();
-                        health.maxHealth = health.maxHealth + 10;
+                        health.maxHealth += 10;
                         Script.Destroy();
                         break;
                     case "Fragile Shield":
                         health = FindObjectOfType<HealthManager>();
                         if (health.damageResitance == 1)
                         {
-                            health.damageResitance = health.damageResitance - 0.1f;
+                            health.damageResitance -= 0.1f;
                         }
                         else
                         {
-                            health.damageResitance = health.damageResitance * 0.95f;
+                            health.damageResitance *= 0.95f;
                         }
                         Script.Destroy();
                         break;
@@ -103,11 +103,11 @@ public class ItemPickup : MonoBehaviour
                         health.mirrorShield = true;
                         if (health.damageResitance == 1)
                         {
-                            health.damageResitance = health.damageResitance - 0.1f;
+                            health.damageResitance -= 0.1f;
                         }
                         else
                         {
-                            health.damageResitance = health.damageResitance * 0.95f;
+                            health.damageResitance *= 0.95f;
                         }
                         Script.Destroy();
                         break;

@@ -6,24 +6,24 @@ public static class SaveSystem
 {
     public static void SavePlayer(Player player)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
+        BinaryFormatter formatter = new();
         
         string path = Application.persistentDataPath + "/player.aah";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = new(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(player);
+        PlayerData data = new(player);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static PlayerData loadPlayer()
+    public static PlayerData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/player.aah";
         if (File.Exists(path))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            BinaryFormatter formatter = new();
+            FileStream stream = new(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();

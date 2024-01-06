@@ -18,7 +18,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             interactKey.SetActive(true);
             inTrigger = true;
@@ -27,7 +27,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             interactKey.SetActive(false);
             inTrigger = false;
@@ -36,10 +36,10 @@ public class Chest : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("e") && inTrigger)
+        if (Input.GetKey(KeyCode.E) && inTrigger)
         {
             animator.SetBool("Opening", true);
-            Invoke("OpenChest", 0.4f);
+            Invoke(nameof(OpenChest), 0.4f);
         }
 
     }
@@ -47,7 +47,7 @@ public class Chest : MonoBehaviour
     void OpenChest()
     {
         var itemToSpawn = Random.Range(0, items.Length);
-        var spawnedItem = Instantiate(items[itemToSpawn], transform.position, transform.rotation);
+        _ = Instantiate(items[itemToSpawn], transform.position, transform.rotation);
         gameObject.SetActive(false);
         animator.SetBool("Opening", false);
 

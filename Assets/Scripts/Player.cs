@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public TMP_Text goldText;
 
-    private float attackTime = 0.25f;
+    private readonly float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
 
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
         //I'm too lazy to add an in-game gold counter at the moment
         Debug.Log(gold);
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed * Time.deltaTime;
+        rb.velocity = speed * Time.deltaTime * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         animator.SetFloat("moveX", rb.velocity.x);
         animator.SetFloat("moveY", rb.velocity.y);
 
@@ -59,8 +59,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isRolling", true);
             health.canTakeDamage = false;
-            speed = speed * 1.5f;
-            Invoke("Roll", 0.33f);
+            speed *= 1.5f;
+            Invoke(nameof(Roll), 0.33f);
         }
 
         if(isAttacking)

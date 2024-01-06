@@ -13,7 +13,7 @@ public class SaveLoadUI : MonoBehaviour
 
     public void LoadPLayer()
     {
-        PlayerData data = SaveSystem.loadPlayer();
+        PlayerData data = SaveSystem.LoadPlayer();
 
         player.exp = data.exp;
         player.speed = data.speed;
