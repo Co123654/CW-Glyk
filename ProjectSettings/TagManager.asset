@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Attack
   - Drop
+  - Minotaur
   layers:
   - Default
   - TransparentFX

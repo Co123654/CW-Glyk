@@ -55,7 +55,7 @@ public class Skeleton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Attack")
+        if(other.CompareTag("Attack"))
         {
             Vector2 difference = transform.position - other.transform.position;
             transform.position = new Vector2(transform.position.x + difference.x / 2, transform.position.y + difference.y / 2);

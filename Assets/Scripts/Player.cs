@@ -42,8 +42,6 @@ public class Player : MonoBehaviour
     {
         goldText.text = "Gold: " + gold.ToString();
 
-        //I'm too lazy to add an in-game gold counter at the moment
-        Debug.Log(gold);
         rb.velocity = speed * Time.deltaTime * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         animator.SetFloat("moveX", rb.velocity.x);
         animator.SetFloat("moveY", rb.velocity.y);
