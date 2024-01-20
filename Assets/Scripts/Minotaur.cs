@@ -10,6 +10,7 @@ public class Minotaur : MonoBehaviour
 
     public EnemyHealthManager minotaurHealthMan;
 
+    [SerializeField]
     private int action = 1;
 
     public int endPatrol;
@@ -19,6 +20,8 @@ public class Minotaur : MonoBehaviour
 
     [SerializeField]
     private float speed;
+
+    public float minimumDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,7 @@ public class Minotaur : MonoBehaviour
 
     public void SelectAction()
     {
-        action = Random.Range(1, 3);
+        action = Random.Range(1, 4);
         actionCompleted = false;
     }
 
@@ -78,10 +81,20 @@ public class Minotaur : MonoBehaviour
     {
         //Play taunt animation
         //Return
+        animator.SetTrigger("Gesturing");
+        actionCompleted = true;
     }
 
     void Attack()
     {
+        if (Vector2.Distance(transform.position, playerTarget.position) > minimumDistance)
+            transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.deltaTime);
+        else
+        {
+            animator.SetTrigger("Attacking");
+            actionCompleted = true;
+        }
+
         //Target player
         //Play attack animation
         //Activate weapon collider
