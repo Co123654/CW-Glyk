@@ -98,7 +98,7 @@ public class Minotaur : MonoBehaviour
         else
         {
             animator.SetTrigger("Attacking");
-            actionCompleted = true;
+            Invoke("SelectAction", 1f);
         }
     }
 }
