@@ -34,6 +34,12 @@ public class Minotaur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(minotaurHealthMan.currentHealth <= 0)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
+
         animator.SetInteger("Health", minotaurHealthMan.currentHealth);
         if(actionCompleted)
         {
@@ -94,11 +100,5 @@ public class Minotaur : MonoBehaviour
             animator.SetTrigger("Attacking");
             actionCompleted = true;
         }
-
-        //Target player
-        //Play attack animation
-        //Activate weapon collider
-        //Deactivate weapon collider
-        //Return
     }
 }

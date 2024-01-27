@@ -46,6 +46,17 @@ public class Player : MonoBehaviour
         animator.SetFloat("moveX", rb.velocity.x);
         animator.SetFloat("moveY", rb.velocity.y);
 
+        if (Input.GetKeyDown(KeyCode.G) && Input.GetKeyDown(KeyCode.M))
+        {
+            if (health.canTakeDamage == true)
+            {
+                health.canTakeDamage = false;
+            }
+            else
+            {
+                health.canTakeDamage = true;
+            }
+        }
         
         if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
