@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
 
-
     public int gold;
 
     public int exp = 0;

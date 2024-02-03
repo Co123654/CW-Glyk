@@ -8,10 +8,11 @@ public class Minotaur : MonoBehaviour
     private Transform playerTarget;
     public Transform target;
 
+    public bool bossHasStarted = false;
+
     public EnemyHealthManager minotaurHealthMan;
 
-    [SerializeField]
-    private int action = 1;
+    public int action = 1;
 
     public int endPatrol;
 
@@ -37,6 +38,7 @@ public class Minotaur : MonoBehaviour
         if(minotaurHealthMan.currentHealth <= 0)
         {
             animator.SetTrigger("Dead");
+            Invoke(nameof(Destroy), 1.5f);
             return;
         }
 
@@ -77,7 +79,7 @@ public class Minotaur : MonoBehaviour
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
         animator.SetFloat("MoveY", (target.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if(endPatrol == Random.Range(1,100))
+        if(endPatrol == Random.Range(1,100) && bossHasStarted)
         {
             actionCompleted = true;
         }
@@ -98,7 +100,12 @@ public class Minotaur : MonoBehaviour
         else
         {
             animator.SetTrigger("Attacking");
-            Invoke("SelectAction", 1.6f);
+            Invoke(nameof(SelectAction), 1.6f);
         }
+    }
+
+    void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 }

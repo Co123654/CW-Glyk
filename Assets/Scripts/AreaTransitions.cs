@@ -31,7 +31,13 @@ public class AreaTransitions : MonoBehaviour
 
         if(bossTrigger)
         {
+            minotaur.bossHasStarted = true;
             minotaur.SelectAction();
+        }
+        else 
+        {
+            minotaur.bossHasStarted = false;
+            minotaur.action = 1;
         }
     }
 }

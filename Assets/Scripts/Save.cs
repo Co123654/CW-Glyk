@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
-    EasyFileSave playerFile;
+    public EasyFileSave playerFile;
 
     public Player player;
     public HealthManager health;
@@ -20,20 +20,6 @@ public class Save : MonoBehaviour
         {
             suppressWarning = false
         };
-        if (playerFile.Load())
-        {
-            player.exp = playerFile.GetInt("exp");
-            player.speed = playerFile.GetFloat("speed");
-            player.damage = playerFile.GetInt("damage");
-            player.transform.position = playerFile.GetUnityVector3("position");
-            player.weapon = playerFile.GetString("weapon");
-            health.maxHealth = playerFile.GetInt("maxhealth");
-            health.currentHealth = playerFile.GetFloat("currenthealth");
-            health.damageResitance = playerFile.GetFloat("damageresistance");
-            health.mirrorShield = playerFile.GetBool("mirrorshield");
-            controller.minPos = playerFile.GetUnityVector2("mincampos");
-            controller.maxPos = playerFile.GetUnityVector2("maxcampos");
-        }
     }
 
     // Update is called once per frame
@@ -92,5 +78,18 @@ public class Save : MonoBehaviour
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
         }
+    }
+
+    public void StatSave()
+    {
+        playerFile.Add("exp", player.exp);
+        playerFile.Add("speed", player.speed);
+        playerFile.Add("damage", player.damage);
+        playerFile.Add("weapon", player.weapon);
+        playerFile.Add("currenthealth", health.currentHealth);
+        playerFile.Add("maxhealth", health.maxHealth);
+        playerFile.Add("damageresistance", health.damageResitance);
+        playerFile.Add("mirrorshield", health.mirrorShield);
+        _ = playerFile.Save();
     }
 }

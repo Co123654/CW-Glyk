@@ -7293,6 +7293,7 @@ GameObject:
   - component: {fileID: 7466785107265694962}
   - component: {fileID: 5646263146762823696}
   - component: {fileID: 1147704963255214763}
+  - component: {fileID: 2189357687622291203}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7388,6 +7389,9 @@ MonoBehaviour:
   weapon: Sword (UnityEngine.GameObject)
   speed: 450
   damage: 2
+  goldText: {fileID: 0}
+  gold: 0
+  exp: 0
 --- !u!114 &7615932900335978039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7402,6 +7406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items: 
   itemActivate: 
+  isShopItem: 0
+  cost: 0
   player: {fileID: 8757331704360785189}
   Sword: {fileID: 3540211446073706438, guid: d4b3b2f6a2c7e004c9ca89d233d17662, type: 3}
   Spear: {fileID: 3480425373576235647, guid: 48756d441ea1d9949912c64317d691f3, type: 3}
@@ -7509,6 +7515,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2189357687622291203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757331704360785189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c916696aa8065e84faab5cc277e6606a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5936433718011642832}
+  health: {fileID: 6080674495773786239}
+  controller: {fileID: 0}
+  chest: {fileID: 0}
 --- !u!1 &8768811032627304361
 GameObject:
   m_ObjectHideFlags: 0
