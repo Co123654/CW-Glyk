@@ -12,6 +12,8 @@ public class Save : MonoBehaviour
     public HealthManager health;
     public CameraController controller;
     public ChestLoader chest;
+    [SerializeField]
+    bool LoadStuff;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,10 @@ public class Save : MonoBehaviour
         {
             suppressWarning = false
         };
+        if(LoadStuff)
+        {
+            StatsLoad();
+        }
     }
 
     // Update is called once per frame
@@ -54,7 +60,6 @@ public class Save : MonoBehaviour
 
             if(playerFile.Load())
             {
-
                 player.exp = playerFile.GetInt("exp");
                 player.speed = playerFile.GetFloat("speed");
                 player.damage = playerFile.GetInt("damage");
@@ -83,6 +88,7 @@ public class Save : MonoBehaviour
     public void StatSave()
     {
         playerFile.Add("exp", player.exp);
+        playerFile.Add("gold", player.gold);
         playerFile.Add("speed", player.speed);
         playerFile.Add("damage", player.damage);
         playerFile.Add("weapon", player.weapon);
@@ -91,5 +97,23 @@ public class Save : MonoBehaviour
         playerFile.Add("damageresistance", health.damageResitance);
         playerFile.Add("mirrorshield", health.mirrorShield);
         _ = playerFile.Save();
+        Debug.Log("Saved!");
+    }
+
+    public void StatsLoad()
+    {
+        if (playerFile.Load())
+        {
+            player.exp = playerFile.GetInt("exp");
+            player.gold = playerFile.GetInt("gold");
+            player.speed = playerFile.GetFloat("speed");
+            player.damage = playerFile.GetInt("damage");
+            player.weapon = playerFile.GetString("weapon");
+            health.maxHealth = playerFile.GetInt("maxhealth");
+            health.currentHealth = playerFile.GetFloat("currenthealth");
+            health.damageResitance = playerFile.GetFloat("damageresistance");
+            health.mirrorShield = playerFile.GetBool("mirrorshield");
+            Debug.Log("Loaded!");
+        }
     }
 }
