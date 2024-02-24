@@ -11,6 +11,8 @@ public class HurtPlayer : MonoBehaviour
     public bool isTouching;
     public float damage = 10f;
 
+    public bool explosive = false;
+
     public EnemyHealthManager enemy;
 
     public bool mirrorShield = false;
@@ -19,7 +21,6 @@ public class HurtPlayer : MonoBehaviour
     void Start()
     {
         health = FindObjectOfType<HealthManager>();
-        enemy = FindObjectOfType<EnemyHealthManager>();
     }
 
     // Update is called once per frame
@@ -49,18 +50,22 @@ public class HurtPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.collider.tag == "Player" && health.canTakeDamage)
+        if(other.collider.CompareTag("Player") && health.canTakeDamage)
         {
             //Destroy(other.gameObject);
             //other.gameObject.SetActive(false);
             health.HurtPlayer(damage * health.damageResitance, enemy);
+            if (explosive)
+            {
+                enemy.currentHealth = 0;
+            }
             //reloading = true;
         }
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.collider.tag == "Player")
+        if (other.collider.CompareTag("Player"))
         {
             isTouching = true;
         }
@@ -68,10 +73,9 @@ public class HurtPlayer : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.collider.tag == "Player")
+        if (other.collider.CompareTag("Player"))
         {
             isTouching = false;
-
             waitToHurt = 2f;
         }
     }

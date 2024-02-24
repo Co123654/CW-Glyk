@@ -16,6 +16,8 @@ public class EnemyHealthManager : MonoBehaviour
     public TMP_Text hpText;
     public GameObject loot;
     public Player player;
+    public bool explosive = false;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,21 @@ public class EnemyHealthManager : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         hpText.text = currentHealth + "/" + maxHealth;
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Idk");
+            if (explosive)
+            {
+                animator.SetTrigger("Explode");
+                Invoke(nameof(Die), 0.33f);
+            }
+            else
+            {
+                player.exp += Random.Range(50, 250);
+                Instantiate(loot, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
         if (flashActive)
         {
             if (flashCounter > flashLength * 0.99f)
@@ -75,11 +92,11 @@ public class EnemyHealthManager : MonoBehaviour
         currentHealth -= damageToGive;
         flashActive = true;
         flashCounter = flashLength;
-        if (currentHealth <= 0)
-        {
-            Instantiate(loot, transform.position, transform.rotation);
-            player.exp += Random.Range(50, 250);
-            Destroy(gameObject);
-        }
+    }
+
+    void Die()
+    {
+        Instantiate(loot, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

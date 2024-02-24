@@ -20,7 +20,7 @@ public class LoadLevels : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             player.StatSave();
-            Invoke("LoadLevel", 1f);
+            Invoke(nameof(LoadLevel), 1f);
         }
     }
 }
