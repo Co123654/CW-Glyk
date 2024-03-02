@@ -12,6 +12,7 @@ public class Save : MonoBehaviour
     public HealthManager health;
     public CameraController controller;
     public ChestLoader chest;
+    public PlayerStats stats;
     [SerializeField]
     bool LoadStuff;
 
@@ -34,7 +35,6 @@ public class Save : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.F))
         {
             chest.Save();
-            playerFile.Add("exp", player.exp);
             playerFile.Add("speed", player.speed);
             playerFile.Add("damage", player.damage);
             playerFile.Add("position", player.transform.position);
@@ -47,6 +47,8 @@ public class Save : MonoBehaviour
             playerFile.Add("maxcampos", controller.maxPos);
             playerFile.Add("morechests", chest.morechests);
             playerFile.Add("chests", chest.chests);
+            playerFile.Add("exp", stats.currentExp);
+            playerFile.Add("Lvl", stats.playerLevel);
 
             _ = playerFile.Save();
             Debug.Log(Application.persistentDataPath);
@@ -96,6 +98,8 @@ public class Save : MonoBehaviour
         playerFile.Add("maxhealth", health.maxHealth);
         playerFile.Add("damageresistance", health.damageResitance);
         playerFile.Add("mirrorshield", health.mirrorShield);
+        playerFile.Add("exp", stats.currentExp);
+        playerFile.Add("Lvl", stats.playerLevel);
         _ = playerFile.Save();
         Debug.Log("Saved!");
     }
@@ -113,6 +117,9 @@ public class Save : MonoBehaviour
             health.currentHealth = playerFile.GetFloat("currenthealth");
             health.damageResitance = playerFile.GetFloat("damageresistance");
             health.mirrorShield = playerFile.GetBool("mirrorshield");
+            stats.playerLevel = playerFile.GetInt("Lvl");
+            stats.currentExp = playerFile.GetInt("exp");
+
             Debug.Log("Loaded!");
         }
     }

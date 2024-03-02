@@ -33,7 +33,8 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         currentExp = player.exp;
-        if(currentExp >= expToLevelUp[playerLevel + 1])
+        levelText.text = "Level: " + playerLevel;
+        if (currentExp >= expToLevelUp[playerLevel + 1])
         {
             player.exp = currentExp - expToLevelUp[playerLevel + 1];
             playerLevel++;

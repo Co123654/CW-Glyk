@@ -10,6 +10,8 @@ public class LoadLevels : MonoBehaviour
 
     public Save player;
 
+    public bool save = true;
+
     public void LoadLevel()
     {
         SceneManager.LoadScene(level);
@@ -19,7 +21,9 @@ public class LoadLevels : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            player.StatSave();
+            if(save)
+                player.StatSave();
+            
             Invoke(nameof(LoadLevel), 1f);
         }
     }

@@ -52,7 +52,7 @@ public class Minotaur : MonoBehaviour
         {
             case 1:
                 Patrol();
-                endPatrol = Random.Range(1, 100);
+                endPatrol = Random.Range(1, 50);
                 break;
             case 2:
                 Taunt();
@@ -79,7 +79,7 @@ public class Minotaur : MonoBehaviour
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
         animator.SetFloat("MoveY", (target.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if(endPatrol == Random.Range(1,100) && bossHasStarted)
+        if(endPatrol == Random.Range(1,50) && bossHasStarted)
         {
             actionCompleted = true;
         }

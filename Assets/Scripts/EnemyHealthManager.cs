@@ -35,7 +35,6 @@ public class EnemyHealthManager : MonoBehaviour
         hpText.text = currentHealth + "/" + maxHealth;
         if (currentHealth <= 0)
         {
-            Debug.Log("Idk");
             if (explosive)
             {
                 animator.SetTrigger("Explode");

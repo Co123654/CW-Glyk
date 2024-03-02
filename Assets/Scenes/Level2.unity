@@ -353,10 +353,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054899124}
   m_SourcePrefab: {fileID: 100100000, guid: cfc00077ebca04f489aa9229ed4074e2, type: 3}
 --- !u!4 &172744319 stripped
 Transform:
@@ -1923,6 +1932,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2edaffa6f526734fa4ca5378a0ac907, type: 3}
+--- !u!1 &576368351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 736832959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &587534958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8542381388950003362, guid: f2edaffa6f526734fa4ca5378a0ac907,
@@ -2076,6 +2091,11 @@ PrefabInstance:
       propertyPath: chest
       value: 
       objectReference: {fileID: 216857684}
+    - target: {fileID: 2189357687622291203, guid: 3d5507535dc880c4c9d05eaef16f845c,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 779501028}
     - target: {fileID: 2189357687622291203, guid: 3d5507535dc880c4c9d05eaef16f845c,
         type: 3}
       propertyPath: LoadStuff
@@ -2777,6 +2797,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1157584603}
+    - target: {fileID: 2163338116402119994, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: explosive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163338116402119994, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: flashLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3817000904599472040, guid: cfc00077ebca04f489aa9229ed4074e2,
         type: 3}
       propertyPath: origin
@@ -2797,10 +2827,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1517785389}
   m_SourcePrefab: {fileID: 100100000, guid: cfc00077ebca04f489aa9229ed4074e2, type: 3}
 --- !u!1001 &765517806
 PrefabInstance:
@@ -2897,6 +2936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722841500335194939, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7750895538170782851, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
@@ -3008,6 +3052,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ae788a5fc765af448e2ee3f420babee, type: 3}
+--- !u!114 &779501028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4096575619559610855, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 779501027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e55e24de6eb3548bb36e293e564f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &781687808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3279,6 +3335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: End
   player: {fileID: 1041874675}
+  save: 1
 --- !u!4 &788945330
 Transform:
   m_ObjectHideFlags: 0
@@ -5055,6 +5112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5964,6 +6026,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2edaffa6f526734fa4ca5378a0ac907, type: 3}
+--- !u!1 &1479723944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144216612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1482343202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599321270457545258, guid: b04ee2dedbc0eb245ad5c91d699d7459,
@@ -6124,6 +6192,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 736832959}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1517785389
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576368351}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 5000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!4 &1528043648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2484700431101466966, guid: bb37b546ced67424da48ab39496a97d9,
@@ -7166,6 +7261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8014,6 +8114,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 144216612}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &2054899124
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479723944}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 5000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &2059409018
 PrefabInstance:
   m_ObjectHideFlags: 0
