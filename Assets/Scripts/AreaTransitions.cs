@@ -8,6 +8,7 @@ public class AreaTransitions : MonoBehaviour
 
     public Vector2 newMinPos;
     public Vector2 newMaxPos;
+    public float camSize = 5;
     public Vector3 movePlayer;
 
     public bool bossTrigger;
@@ -26,6 +27,7 @@ public class AreaTransitions : MonoBehaviour
         {
             cam.minPos = newMinPos;
             cam.maxPos = newMaxPos;
+            cam.camSize = camSize;
             other.transform.position += movePlayer;
         }
 

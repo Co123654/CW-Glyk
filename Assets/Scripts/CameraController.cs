@@ -5,15 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
+    public Camera cam;
     public float smoothing;
     public Vector2 minPos;
     public Vector2 maxPos;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float camSize;
 
     // Update is called once per frame
     void LateUpdate()
@@ -28,6 +24,8 @@ public class CameraController : MonoBehaviour
             targetPosition.y = Mathf.Clamp(targetPosition.y, minPos.y, maxPos.y);
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
+
+            cam.orthographicSize = camSize;
         }
     }
 }
