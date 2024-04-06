@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: -6.85, y: -7.73}
   newMaxPos: {x: 3.02, y: -2.51}
+  camSize: 5
   movePlayer: {x: -6.5, y: 0, z: 0}
   bossTrigger: 0
   minotaur: {fileID: 0}
@@ -142,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: 17.75, y: -7.96}
   newMaxPos: {x: 17.75, y: -2.01}
+  camSize: 5
   movePlayer: {x: 6.5, y: 0, z: 0}
   bossTrigger: 0
   minotaur: {fileID: 0}
@@ -202,7 +204,7 @@ GameObject:
   m_Layer: 0
   m_Name: AreaTransitionEW
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

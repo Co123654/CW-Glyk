@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: AreaTransitionsNS
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: -14.45, y: -19.99}
   newMaxPos: {x: 0.05, y: -17.3}
+  camSize: 5
   movePlayer: {x: 0, y: 6, z: 0}
   bossTrigger: 0
   minotaur: {fileID: 0}
@@ -220,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: 0.05, y: -31.03}
   newMaxPos: {x: 0.05, y: -31.03}
+  camSize: 5
   movePlayer: {x: 0, y: -6, z: 0}
   bossTrigger: 0
   minotaur: {fileID: 0}

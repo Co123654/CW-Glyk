@@ -8,12 +8,25 @@ public class PatrolPoint : MonoBehaviour
 
     private Minotaur minotaur;
 
+    private Mage mage;
+
+    public bool minormag;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Enemy"))
         {
-            minotaur = other.GetComponent<Minotaur>();
-            minotaur.target = target;
+            if(minormag)
+            {
+                minotaur = other.GetComponent<Minotaur>();
+                minotaur.target = target;
+
+            }
+            else
+            {
+                mage = other.GetComponent<Mage>();
+                mage.target = target;
+            }
         }
     }
 }
