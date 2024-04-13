@@ -48,7 +48,7 @@ public class Minotaur : MonoBehaviour
             SelectAction();
         }
 
-        switch(action)
+       /* switch(action)
         {
             case 1:
                 Patrol();
@@ -60,12 +60,29 @@ public class Minotaur : MonoBehaviour
             case 3:
                 Attack();
                 break;
+            case 4:
+                Attack();
+                break;
+        }*/
+
+        if(action == 1)
+        {
+            Patrol();
+            endPatrol = Random.Range(1, 50);
+        }
+        else if(action == 2)
+        {
+            Taunt();
+        }
+        else if(action >= 3)
+        {
+            Attack();
         }
     }
 
     public void SelectAction()
     {
-        action = Random.Range(1, 4);
+        action = Random.Range(2, 50);
         actionCompleted = false;
     }
 

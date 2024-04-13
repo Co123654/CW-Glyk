@@ -9,6 +9,7 @@ TagManager:
   - Attack
   - Drop
   - Minotaur
+  - Mage
   layers:
   - Default
   - TransparentFX

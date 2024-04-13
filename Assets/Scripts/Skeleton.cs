@@ -58,7 +58,7 @@ public class Skeleton : MonoBehaviour
         if(other.CompareTag("Attack"))
         {
             Vector2 difference = transform.position - other.transform.position;
-            transform.position = new Vector2(transform.position.x + difference.x / 2, transform.position.y + difference.y / 2);
+            transform.position = new Vector2(transform.position.x + difference.x / 1.5f, transform.position.y + difference.y / 1.5f);
         }
     }
 }

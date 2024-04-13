@@ -7,6 +7,7 @@ public class Mage : MonoBehaviour
     private Animator animator;
     private Transform playerTarget;
     public Transform target;
+    public Transform bulletSpawner;
 
     public GameObject mageBullet;
     public GameObject Fireball;
@@ -48,6 +49,7 @@ public class Mage : MonoBehaviour
         animator.SetInteger("Health", minotaurHealthMan.currentHealth);
         if(actionCompleted)
         {
+            StopAllCoroutines();
             SelectAction();
         }
 
@@ -61,9 +63,14 @@ public class Mage : MonoBehaviour
                 Fire();
                 break;
             case 3:
-                Attack();
+                StartCoroutine(Attack());
                 break;
         }
+
+        animator.SetBool("isMoving", true);
+        animator.SetFloat("MoveX", (target.position.x - transform.position.x));
+        animator.SetFloat("MoveY", (target.position.y - transform.position.y));
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
     public void SelectAction()
@@ -78,10 +85,10 @@ public class Mage : MonoBehaviour
         //Each point changes target
         //Randomly decide to return
         //Return
-        animator.SetBool("isMoving", true);
+        /*animator.SetBool("isMoving", true);
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
         animator.SetFloat("MoveY", (target.position.y - transform.position.y));
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);*/
         if(endPatrol == Random.Range(1,50) && bossHasStarted)
         {
             actionCompleted = true;
@@ -99,11 +106,14 @@ public class Mage : MonoBehaviour
             actionCompleted = true;
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-        //Shoot mage bullets
-        //Return
+        Instantiate(mageBullet, bulletSpawner.position, bulletSpawner.rotation);
+        yield return new WaitForSeconds(0.5f);
+        actionCompleted = true;
+        yield return null;
     }
+
 
     void Destroy()
     {
