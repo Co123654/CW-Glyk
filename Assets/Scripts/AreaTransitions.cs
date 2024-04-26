@@ -13,8 +13,12 @@ public class AreaTransitions : MonoBehaviour
 
     public bool bossTrigger;
 
+    public bool mageFight = false;
+
     [SerializeField]
     private Minotaur minotaur;
+    [SerializeField]
+    private Mage mage;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +35,25 @@ public class AreaTransitions : MonoBehaviour
             other.transform.position += movePlayer;
         }
 
-        if(bossTrigger)
+        if(bossTrigger && !mageFight)
         {
             minotaur.bossHasStarted = true;
             minotaur.SelectAction();
         }
-        else 
+        else if(!bossTrigger && !mageFight) 
         {
             minotaur.bossHasStarted = false;
             minotaur.action = 1;
+        }
+        else if(bossTrigger && mageFight)
+        {
+            mage.bossHasStarted = true;
+            mage.SelectAction();
+        }
+        else if(!bossTrigger && mageFight)
+        {
+            mage.bossHasStarted = false;
+            mage.action = 1;
         }
     }
 }

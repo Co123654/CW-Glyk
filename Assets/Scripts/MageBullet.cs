@@ -24,6 +24,10 @@ public class MageBullet : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        /*if(target = null)
+        {
+            //Destroy(gameObject);
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -36,10 +40,17 @@ public class MageBullet : MonoBehaviour
         }
         else if(other.CompareTag("Player"))
         {
-            health.HurtPlayer(5 * health.damageResitance);
+            health.HurtPlayer(5 * health.damageResitance, mage.GetComponent<EnemyHealthManager>());
         }
         else if(other.CompareTag("Mage"))
         {
+            if(target == mage)
+            {
+                EnemyHealthManager enemyHealth;
+                enemyHealth = other.gameObject.GetComponent<EnemyHealthManager>();
+                enemyHealth.HurtEnemy(10);
+                Destroy(gameObject);
+            }
             //Check if can damage mage
             //Damage mage
         }

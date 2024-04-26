@@ -57,7 +57,7 @@ public class Mage : MonoBehaviour
         {
             case 1:
                 Patrol();
-                endPatrol = Random.Range(1, 50);
+                endPatrol = Random.Range(1, 500);
                 break;
             case 2:
                 Fire();
@@ -66,6 +66,20 @@ public class Mage : MonoBehaviour
                 StartCoroutine(Attack());
                 break;
         }
+
+        /*if(action != 2 && action != 3)
+        {
+            Patrol();
+            endPatrol = Random.Range(1, 150);
+        }
+        else if(action == 2)
+        {
+            Fire();
+        }
+        else if(action == 3)
+        {
+            StartCoroutine(Attack());
+        }*/
 
         animator.SetBool("isMoving", true);
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
@@ -76,6 +90,8 @@ public class Mage : MonoBehaviour
     public void SelectAction()
     {
         action = Random.Range(1, 4);
+        Debug.Log(action);
+        StopAllCoroutines();
         actionCompleted = false;
     }
 
@@ -89,7 +105,7 @@ public class Mage : MonoBehaviour
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
         animator.SetFloat("MoveY", (target.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);*/
-        if(endPatrol == Random.Range(1,50) && bossHasStarted)
+        if(endPatrol == Random.Range(1,150) && bossHasStarted)
         {
             actionCompleted = true;
         }
@@ -108,13 +124,22 @@ public class Mage : MonoBehaviour
 
     IEnumerator Attack()
     {
-        Instantiate(mageBullet, bulletSpawner.position, bulletSpawner.rotation);
-        yield return new WaitForSeconds(0.5f);
+        WaitForSeconds delay = new WaitForSeconds(0.1f);
+
+        for (int i = 0; i < 12; i++)
+        {
+            spawnBullet();
+            yield return delay;
+        }
         actionCompleted = true;
-        yield return null;
+        yield break;
+
     }
 
-
+    void spawnBullet()
+    {
+        Instantiate(mageBullet, bulletSpawner.position, bulletSpawner.rotation);
+    }
     void Destroy()
     {
         Destroy(this.gameObject);
