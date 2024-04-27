@@ -1,13 +1,9 @@
-Bossfight
 Spear animation and hitboxes
-Different enemy types
+Different enemy types*
 Enemy ai
 Level design
-More items
-Finish the levelling system
-Room layouts/designs
 Special events (i.e a room with a healing pool in the middle)
 Polish animations
-Enemy attacks
+Enemy attacks*
 Paticle systems/animations for interactions
-Save/load system
+Save/load system*

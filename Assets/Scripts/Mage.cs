@@ -18,7 +18,7 @@ public class Mage : MonoBehaviour
 
     public int action = 1;
 
-    public int endPatrol;
+    public int endPatrol = 46;
 
     [SerializeField]
     private bool actionCompleted;
@@ -39,7 +39,10 @@ public class Mage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(minotaurHealthMan.currentHealth <= 0)
+        Patrol();
+        endPatrol = Random.Range(1, 200);
+
+        if (minotaurHealthMan.currentHealth <= 0)
         {
             animator.SetTrigger("Dead");
             Invoke(nameof(Destroy), 1.5f);
@@ -51,21 +54,24 @@ public class Mage : MonoBehaviour
         {
             StopAllCoroutines();
             SelectAction();
+            switch(action)
+            {
+                case 1:
+                    Patrol();
+                    endPatrol = Random.Range(1, 150);
+                    actionCompleted = false;
+                    break;
+                case 2:
+                    actionCompleted = false;
+                    Fire();
+                    break;
+                case 3:
+                    StartCoroutine(Attack());
+                    actionCompleted = false;
+                    break;
+            }
         }
 
-        switch(action)
-        {
-            case 1:
-                Patrol();
-                endPatrol = Random.Range(1, 500);
-                break;
-            case 2:
-                Fire();
-                break;
-            case 3:
-                StartCoroutine(Attack());
-                break;
-        }
 
         /*if(action != 2 && action != 3)
         {
@@ -89,10 +95,16 @@ public class Mage : MonoBehaviour
 
     public void SelectAction()
     {
-        action = Random.Range(1, 4);
+        if (action == 1)
+        {
+            action = Random.Range(2, 4);
+        }
+        else
+        {
+            action = 1;
+        }
         Debug.Log(action);
         StopAllCoroutines();
-        actionCompleted = false;
     }
 
     void Patrol()
@@ -101,11 +113,7 @@ public class Mage : MonoBehaviour
         //Each point changes target
         //Randomly decide to return
         //Return
-        /*animator.SetBool("isMoving", true);
-        animator.SetFloat("MoveX", (target.position.x - transform.position.x));
-        animator.SetFloat("MoveY", (target.position.y - transform.position.y));
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);*/
-        if(endPatrol == Random.Range(1,150) && bossHasStarted)
+        if(endPatrol == Random.Range(1,200) && bossHasStarted)
         {
             actionCompleted = true;
         }
@@ -117,29 +125,24 @@ public class Mage : MonoBehaviour
         //Return
         for (int i = 0; i < 3; i++)
         {
-            Instantiate(Fireball, transform.position, transform.rotation);
+            Instantiate(Fireball, bulletSpawner.position, bulletSpawner.rotation);
         }
             actionCompleted = true;
     }
 
     IEnumerator Attack()
     {
-        WaitForSeconds delay = new WaitForSeconds(0.1f);
-
+        Debug.Log("Trigger");
         for (int i = 0; i < 12; i++)
         {
-            spawnBullet();
-            yield return delay;
+            Instantiate(mageBullet, bulletSpawner.position, bulletSpawner.rotation);
+            yield return i;
         }
         actionCompleted = true;
         yield break;
 
     }
 
-    void spawnBullet()
-    {
-        Instantiate(mageBullet, bulletSpawner.position, bulletSpawner.rotation);
-    }
     void Destroy()
     {
         Destroy(this.gameObject);

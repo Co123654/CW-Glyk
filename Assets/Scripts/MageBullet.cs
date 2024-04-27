@@ -41,6 +41,7 @@ public class MageBullet : MonoBehaviour
         else if(other.CompareTag("Player"))
         {
             health.HurtPlayer(5 * health.damageResitance, mage.GetComponent<EnemyHealthManager>());
+            Destroy(gameObject);
         }
         else if(other.CompareTag("Mage"))
         {

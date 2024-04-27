@@ -2858,10 +2858,20 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1367062225416584461, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2677453856420818209, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3722841500335194939, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
@@ -2990,6 +3000,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e55e24de6eb3548bb36e293e564f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &779501029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1385184702445897283, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 779501027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &779501030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 779501027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &781687808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3263,6 +3291,8 @@ MonoBehaviour:
   level: Level3
   player: {fileID: 1041874675}
   save: 1
+  loadingScreen: {fileID: 779501030}
+  slider: {fileID: 779501029}
 --- !u!4 &788945330
 Transform:
   m_ObjectHideFlags: 0
