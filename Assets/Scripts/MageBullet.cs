@@ -26,7 +26,7 @@ public class MageBullet : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         /*if(target = null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }*/
     }
 

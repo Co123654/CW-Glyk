@@ -1362,7 +1362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183039255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.1, y: 19, z: -10}
+  m_LocalPosition: {x: 12.92, y: 18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23900,6 +23900,11 @@ PrefabInstance:
       objectReference: {fileID: 1743800257}
     - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
         type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1743800261}
+    - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
+        type: 3}
       propertyPath: currentHealth
       value: 50
       objectReference: {fileID: 0}
@@ -24467,7 +24472,7 @@ PrefabInstance:
     - target: {fileID: 50497133438963362, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
       propertyPath: newMaxPos.y
-      value: 13
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 50497133438963362, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
@@ -24477,7 +24482,7 @@ PrefabInstance:
     - target: {fileID: 50497133438963362, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
       propertyPath: newMinPos.y
-      value: 18
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3778544792582075034, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
@@ -28284,6 +28289,7 @@ MonoBehaviour:
   level: Level4
   player: {fileID: 1838000587}
   save: 1
+  reset: 0
   loadingScreen: {fileID: 1743800260}
   slider: {fileID: 1743800259}
 --- !u!61 &1405338125
@@ -29906,6 +29912,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7750895538170782851, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -30055,6 +30066,12 @@ MonoBehaviour:
 --- !u!1 &1743800260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1743800256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1743800261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
     type: 3}
   m_PrefabInstance: {fileID: 1743800256}
   m_PrefabAsset: {fileID: 0}

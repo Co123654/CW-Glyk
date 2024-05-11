@@ -123,4 +123,9 @@ public class Save : MonoBehaviour
             Debug.Log("Loaded!");
         }
     }
+
+    public void StatsReset()
+    {
+        playerFile.Delete();
+    }
 }

@@ -13,6 +13,7 @@ public class HealthManager : MonoBehaviour
     private float flashCounter = 0f;
     private SpriteRenderer playerSprite;
     public bool mirrorShield = false;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,7 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            gameOver.SetActive(true);
             gameObject.SetActive(false);
         }
     }

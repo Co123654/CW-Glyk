@@ -1,9 +1,5 @@
-Spear animation and hitboxes
 Different enemy types*
 Enemy ai
 Level design
 Special events (i.e a room with a healing pool in the middle)
-Polish animations
 Enemy attacks*
-Paticle systems/animations for interactions
-Save/load system*

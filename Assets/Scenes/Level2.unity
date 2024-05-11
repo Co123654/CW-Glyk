@@ -1504,7 +1504,7 @@ PrefabInstance:
     - target: {fileID: 4537136369018298032, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
         type: 3}
       propertyPath: newMinPos.x
-      value: -6.85
+      value: -3.83
       objectReference: {fileID: 0}
     - target: {fileID: 4537136369018298032, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
         type: 3}
@@ -1529,12 +1529,12 @@ PrefabInstance:
     - target: {fileID: 6268042885446058935, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6268042885446058935, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.42
       objectReference: {fileID: 0}
     - target: {fileID: 6268042885446058935, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
         type: 3}
@@ -2164,6 +2164,11 @@ PrefabInstance:
       objectReference: {fileID: 1200415685}
     - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
         type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 779501031}
+    - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
+        type: 3}
       propertyPath: canTakeDamage
       value: 1
       objectReference: {fileID: 0}
@@ -2560,6 +2565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AreaTransitionEW
       objectReference: {fileID: 0}
+    - target: {fileID: 9031902200342895099, guid: 7d57d046dc19e9f4d96b8738307b8ee8,
+        type: 3}
+      propertyPath: newMinPos.x
+      value: -3.83
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2878,6 +2888,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7750895538170782851, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3015,6 +3030,12 @@ MonoBehaviour:
 --- !u!1 &779501030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 779501027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &779501031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
     type: 3}
   m_PrefabInstance: {fileID: 779501027}
   m_PrefabAsset: {fileID: 0}
@@ -3291,6 +3312,7 @@ MonoBehaviour:
   level: Level3
   player: {fileID: 1041874675}
   save: 1
+  reset: 0
   loadingScreen: {fileID: 779501030}
   slider: {fileID: 779501029}
 --- !u!4 &788945330
@@ -5936,6 +5958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776475920336473154, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
+      propertyPath: newMinPos.x
+      value: -3.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8776475920336473154, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
+        type: 3}
       propertyPath: newMinPos.y
       value: -7.73
       objectReference: {fileID: 0}
@@ -6414,7 +6441,7 @@ MonoBehaviour:
   target: {fileID: 452089844}
   cam: {fileID: 0}
   smoothing: 0.25
-  minPos: {x: -6.85, y: -7.73}
+  minPos: {x: -3.83, y: -7.73}
   maxPos: {x: 3.02, y: -2.51}
   camSize: 0
 --- !u!114 &1587846237 stripped
@@ -6968,7 +6995,7 @@ PrefabInstance:
     - target: {fileID: 50497133438963362, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}
       propertyPath: newMinPos.x
-      value: -4.12
+      value: -3.83
       objectReference: {fileID: 0}
     - target: {fileID: 50497133438963362, guid: 71bbcffb8945a914d9bd94eeab14dbe1,
         type: 3}

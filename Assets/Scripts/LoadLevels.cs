@@ -13,12 +13,18 @@ public class LoadLevels : MonoBehaviour
 
     public bool save = true;
 
+    public bool reset = false;
+
     public GameObject loadingScreen;
     public Slider slider;
 
     public void LoadLevel()
     {
         StartCoroutine(LoadAsync(level));
+        if(reset)
+        {
+            player.StatsReset();
+        }
     }
 
     IEnumerator LoadAsync(string level)

@@ -404,10 +404,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1367062225416584461, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2677453856420818209, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7750895538170782851, guid: 4ae788a5fc765af448e2ee3f420babee,
         type: 3}
@@ -531,6 +546,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e55e24de6eb3548bb36e293e564f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &697487708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6095855776662608352, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 697487706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &724076899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -799,6 +820,11 @@ PrefabInstance:
       objectReference: {fileID: 839335857}
     - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
         type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 697487708}
+    - target: {fileID: 6080674495773786239, guid: 3d5507535dc880c4c9d05eaef16f845c,
+        type: 3}
       propertyPath: currentHealth
       value: 50
       objectReference: {fileID: 0}
@@ -921,6 +947,9 @@ MonoBehaviour:
   level: Hub
   player: {fileID: 1265445210}
   save: 1
+  reset: 0
+  loadingScreen: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!4 &1733177618
 Transform:
   m_ObjectHideFlags: 0
