@@ -61,6 +61,11 @@ public class HealthManager : MonoBehaviour
             }
             flashCounter -= Time.deltaTime;
         }
+
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     public void HurtPlayer(float damageToGive, EnemyHealthManager enemy)

@@ -7,8 +7,7 @@ public class HurtEnemy : MonoBehaviour
     public int damageToGive = 2;
 
     private Player player;
-
-    bool AOE = false;
+    readonly bool AOE = false;
 
     public float waitToHurt = 2f;
 
@@ -26,7 +25,7 @@ public class HurtEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy" && !AOE)
+        if(other.CompareTag("Enemy") && !AOE)
         {
             EnemyHealthManager enemyHealth;
             enemyHealth = other.gameObject.GetComponent<EnemyHealthManager>();
@@ -38,7 +37,7 @@ public class HurtEnemy : MonoBehaviour
     {
         if(AOE)
         {
-            if (other.tag == "Enemy")
+            if (other.CompareTag("Enemy"))
             {
                 EnemyHealthManager enemyHealth;
                 enemyHealth = other.gameObject.GetComponent<EnemyHealthManager>();
