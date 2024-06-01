@@ -72,21 +72,6 @@ public class Mage : MonoBehaviour
             }
         }
 
-
-        /*if(action != 2 && action != 3)
-        {
-            Patrol();
-            endPatrol = Random.Range(1, 150);
-        }
-        else if(action == 2)
-        {
-            Fire();
-        }
-        else if(action == 3)
-        {
-            StartCoroutine(Attack());
-        }*/
-
         animator.SetBool("isMoving", true);
         animator.SetFloat("MoveX", (target.position.x - transform.position.x));
         animator.SetFloat("MoveY", (target.position.y - transform.position.y));
