@@ -5,6 +5,9 @@ using UnityEngine;
 public class ShadowGuy : MonoBehaviour
 {
     private Animator animator;
+
+    public Animator attackAnim;
+
     private Transform target;
     [SerializeField]
     private Transform center;
@@ -32,7 +35,6 @@ public class ShadowGuy : MonoBehaviour
     {
         if (actionCompleted)
         {
-            StopAllCoroutines();
             SelectAction();
             switch (action)
             {
@@ -51,31 +53,53 @@ public class ShadowGuy : MonoBehaviour
                     break;
             }
         }
+
+        if(action == 1)
+        {
+            AttackNFollow();
+        }
     }
 
     public void SelectAction()
     {
-        if (action == 1)
-        {
-            action = Random.Range(2, 4);
-        }
-        else
-        {
-            action = 1;
-        }
+        action = Random.Range(1, 4);
         Debug.Log(action);
-        StopAllCoroutines();
     }
 
     void AttackNFollow()
     {
+        target = FindObjectOfType<Player>().transform;
+
         if (Vector3.Distance(target.position, transform.position) >= minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else
         {
-            //attack
+            if((target.position.x - transform.position.x) >= 0.01 && (target.position.y - transform.position.y) >= 0.01)
+            {
+                attackAnim.SetFloat("X", -1);
+                attackAnim.SetFloat("Y", 1);
+                actionCompleted = true;
+            }
+            else if((target.position.x - transform.position.x) <= -0.01 && (target.position.y - transform.position.y) <= -0.01)
+            {
+                attackAnim.SetFloat("X", 1);
+                attackAnim.SetFloat("Y", -1);
+                actionCompleted = true;
+            }
+            else if((target.position.x - transform.position.x) >= 0.01 && (target.position.y - transform.position.y) <= -0.01)
+            {
+                attackAnim.SetFloat("X", -1);
+                attackAnim.SetFloat("Y", -1);
+                actionCompleted = true;
+            }
+            else if((target.position.x - transform.position.x) <= -0.01 && (target.position.y - transform.position.y) >= 0.01)
+            {
+                attackAnim.SetFloat("X", 1);
+                attackAnim.SetFloat("Y", 1);
+                actionCompleted = true;
+            }
         }
     }
 
