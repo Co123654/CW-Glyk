@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
-    public string weapon = "Sword (UnityEngine.GameObject)";
-
     public float speed;
     public int damage = 2;
     private float currentSpeed;
@@ -45,7 +43,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("moveX", rb.velocity.x);
         animator.SetFloat("moveY", rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.G) && Input.GetKeyDown(KeyCode.M))
+        /*if (Input.GetKeyDown(KeyCode.G) && Input.GetKeyDown(KeyCode.M))
         {
             if (health.canTakeDamage == true)
             {
@@ -55,7 +53,7 @@ public class Player : MonoBehaviour
             {
                 health.canTakeDamage = true;
             }
-        }
+        }*/
         
         if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
@@ -82,22 +80,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false && weapon == "Sword (UnityEngine.GameObject)")
+        if (Input.GetMouseButtonDown(0) && isAttacking == false)
         {
+            Debug.Log(Input.mousePosition/10);
             attackCounter = attackTime;
             animator.SetBool("isAttacking", true);
             animator.SetInteger("Weapon", 0);
             isAttacking = true;
-        }
-        if (Input.GetKeyDown(KeyCode.T) && isAttacking == false && weapon == "Spear (UnityEngine.GameObject)")
-        {
-            /*
-            attackCounter = attackTime;
-            animator.SetBool("isAttacking", true);
-            animator.SetInteger("Weapon", 1);
-            isAttacking = true;
-            */
-            Debug.Log("Spear Attack");
         }
     }
 

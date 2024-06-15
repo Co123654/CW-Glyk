@@ -115,43 +115,8 @@ public class ItemPickup : MonoBehaviour
                         player.GetComponent<Player>().damage++;
                         Script.Destroy();
                         break;
-                    case "Sword":
-                        DropWeapon(Sword);
-                        Script.Destroy();
-                        break;
-                    case "Spear":
-                        DropWeapon(Spear);
-                        Script.Destroy();
-                        break;
                 }
             }
         }
-    }
-
-    void DropWeapon(GameObject NewWeapon)
-    {
-        if(OldWeapon != NewWeapon)
-        {
-            if(NewWeapon == Spear)
-            {
-                player.GetComponent<Player>().damage--;
-            }
-            else if(NewWeapon == Sword)
-            {
-                player.GetComponent<Player>().damage++;
-            }
-        }
-        if (OldWeapon != null)
-        {
-            Instantiate(OldWeapon, new Vector2(player.transform.position.x, player.transform.position.y), Quaternion.identity);
-        }
-        else
-        {
-            OldWeapon = NewWeapon;
-            player.GetComponent<Player>().weapon = NewWeapon.ToString();
-            Script.Destroy();
-        }
-        OldWeapon = NewWeapon;
-        player.GetComponent<Player>().weapon = NewWeapon.ToString();
     }
 }

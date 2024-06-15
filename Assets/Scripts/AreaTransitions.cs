@@ -19,6 +19,8 @@ public class AreaTransitions : MonoBehaviour
     private Minotaur minotaur;
     [SerializeField]
     private Mage mage;
+    [SerializeField]
+    private ShadowGuy shadowGuy;
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +57,7 @@ public class AreaTransitions : MonoBehaviour
             mage.bossHasStarted = false;
             mage.action = 1;
         }
+
+        shadowGuy.StartBattle();
     }
 }

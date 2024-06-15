@@ -27,6 +27,7 @@ public class ShadowGuy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 0;
         target = FindObjectOfType<Player>().transform;
     }
 
@@ -69,7 +70,7 @@ public class ShadowGuy : MonoBehaviour
     void AttackNFollow()
     {
         target = FindObjectOfType<Player>().transform;
-
+        minDistance = 2;
         if (Vector3.Distance(target.position, transform.position) >= minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -121,5 +122,11 @@ public class ShadowGuy : MonoBehaviour
     {
         Instantiate(tentacle, target.position, Quaternion.identity);
         actionCompleted = true;
+    }
+
+    public void StartBattle()
+    {
+        animator.SetTrigger("Entrance");
+        speed = 2;
     }
 }

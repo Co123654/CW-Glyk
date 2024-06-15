@@ -30,7 +30,7 @@ public class Save : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
@@ -85,7 +85,7 @@ public class Save : MonoBehaviour
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
         }
-    }
+    }*/
 
     public void StatSave()
     {
@@ -93,7 +93,6 @@ public class Save : MonoBehaviour
         playerFile.Add("gold", player.gold);
         playerFile.Add("speed", player.speed);
         playerFile.Add("damage", player.damage);
-        playerFile.Add("weapon", player.weapon);
         playerFile.Add("currenthealth", health.currentHealth);
         playerFile.Add("maxhealth", health.maxHealth);
         playerFile.Add("damageresistance", health.damageResitance);
@@ -112,7 +111,6 @@ public class Save : MonoBehaviour
             player.gold = playerFile.GetInt("gold");
             player.speed = playerFile.GetFloat("speed");
             player.damage = playerFile.GetInt("damage");
-            player.weapon = playerFile.GetString("weapon");
             health.maxHealth = playerFile.GetInt("maxhealth");
             health.currentHealth = playerFile.GetFloat("currenthealth");
             health.damageResitance = playerFile.GetFloat("damageresistance");

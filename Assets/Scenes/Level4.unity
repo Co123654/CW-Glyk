@@ -386,6 +386,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71bbcffb8945a914d9bd94eeab14dbe1, type: 3}
+--- !u!114 &568462498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1385184702445897283, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 697487706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &697487706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -717,6 +729,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1243773490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553762158359891818, guid: 4ae788a5fc765af448e2ee3f420babee,
+    type: 3}
+  m_PrefabInstance: {fileID: 697487706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1265445209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5151795462700593069, guid: 3d5507535dc880c4c9d05eaef16f845c,
@@ -916,7 +934,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.007028818, y: 0.16166306}
@@ -946,10 +964,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: Hub
   player: {fileID: 1265445210}
-  save: 1
-  reset: 0
-  loadingScreen: {fileID: 0}
-  slider: {fileID: 0}
+  save: 0
+  reset: 1
+  loadingScreen: {fileID: 1243773490}
+  slider: {fileID: 568462498}
 --- !u!4 &1733177618
 Transform:
   m_ObjectHideFlags: 0
