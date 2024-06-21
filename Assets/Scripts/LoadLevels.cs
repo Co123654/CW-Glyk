@@ -15,8 +15,22 @@ public class LoadLevels : MonoBehaviour
 
     public bool reset = false;
 
+    [SerializeField]
+    private bool titleScreen;
+
     public GameObject loadingScreen;
     public Slider slider;
+    private void Start()
+    {
+        if(titleScreen)
+        {
+            level = player.playerFile.GetString("Level");
+            if(level == null)
+            {
+                level = "Level1";
+            }
+        }
+    }
 
     public void LoadLevel()
     {

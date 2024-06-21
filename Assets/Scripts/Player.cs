@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     public float speed;
     public int damage = 2;
-    private float currentSpeed;
+    public float currentSpeed;
 
     public TMP_Text goldText;
 

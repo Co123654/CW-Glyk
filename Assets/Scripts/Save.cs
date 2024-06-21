@@ -99,6 +99,7 @@ public class Save : MonoBehaviour
         playerFile.Add("mirrorshield", health.mirrorShield);
         playerFile.Add("exp", stats.currentExp);
         playerFile.Add("Lvl", stats.playerLevel);
+        playerFile.Add("Level", SceneManager.GetActiveScene().name);
         _ = playerFile.Save();
         Debug.Log("Saved!");
     }

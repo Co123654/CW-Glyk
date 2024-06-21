@@ -92,6 +92,7 @@ public class ItemPickup : MonoBehaviour
                         break;
                     case "Light Foot":
                         player.GetComponent<Player>().speed = player.GetComponent<Player>().speed * 1.25f;
+                        player.GetComponent<Player>().currentSpeed = player.GetComponent<Player>().speed;
                         Script.Destroy();
                         break;
                     case "Holy Pendant":
