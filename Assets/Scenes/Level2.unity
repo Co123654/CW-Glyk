@@ -3313,6 +3313,7 @@ MonoBehaviour:
   player: {fileID: 1041874675}
   save: 1
   reset: 0
+  titleScreen: 0
   loadingScreen: {fileID: 779501030}
   slider: {fileID: 779501029}
 --- !u!4 &788945330

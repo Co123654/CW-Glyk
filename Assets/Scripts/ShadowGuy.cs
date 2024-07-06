@@ -128,5 +128,6 @@ public class ShadowGuy : MonoBehaviour
     {
         animator.SetTrigger("Entrance");
         speed = 2;
+        SelectAction();
     }
 }

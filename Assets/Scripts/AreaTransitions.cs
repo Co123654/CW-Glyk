@@ -37,6 +37,8 @@ public class AreaTransitions : MonoBehaviour
             other.transform.position += movePlayer;
         }
 
+        shadowGuy.StartBattle();
+
         if(bossTrigger && !mageFight)
         {
             minotaur.bossHasStarted = true;
@@ -58,6 +60,5 @@ public class AreaTransitions : MonoBehaviour
             mage.action = 1;
         }
 
-        shadowGuy.StartBattle();
     }
 }
