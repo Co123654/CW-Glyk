@@ -15,6 +15,8 @@ public class AreaTransitions : MonoBehaviour
 
     public bool mageFight = false;
 
+    public bool finalBoss = false;
+
     [SerializeField]
     private Minotaur minotaur;
     [SerializeField]
@@ -29,7 +31,7 @@ public class AreaTransitions : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             cam.minPos = newMinPos;
             cam.maxPos = newMaxPos;
@@ -37,7 +39,10 @@ public class AreaTransitions : MonoBehaviour
             other.transform.position += movePlayer;
         }
 
-        shadowGuy.StartBattle();
+        if (finalBoss)
+        { 
+            shadowGuy.StartBattle();
+        }
 
         if(bossTrigger && !mageFight)
         {

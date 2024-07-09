@@ -63,7 +63,7 @@ public class Mage : MonoBehaviour
                     break;
                 case 2:
                     actionCompleted = false;
-                    Fire();
+                    StartCoroutine(Fire());
                     break;
                 case 3:
                     StartCoroutine(Attack());
@@ -104,15 +104,16 @@ public class Mage : MonoBehaviour
         }
     }
 
-    void Fire()
+    IEnumerator Fire()
     {
         //Shoot 3 Fireballs
         //Return
         for (int i = 0; i < 3; i++)
         {
             Instantiate(Fireball, bulletSpawner.position, bulletSpawner.rotation);
+            yield return new WaitForSeconds(1);
         }
-            actionCompleted = true;
+        actionCompleted = true;
     }
 
     IEnumerator Attack()

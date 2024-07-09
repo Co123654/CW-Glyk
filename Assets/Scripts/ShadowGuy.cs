@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowGuy : MonoBehaviour
 {
-    private Animator animator;
+    private readonly Animator animator;
 
     public Animator attackAnim;
 
@@ -24,6 +24,8 @@ public class ShadowGuy : MonoBehaviour
 
     public GameObject tentacle;
 
+    private float timer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class ShadowGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         if (actionCompleted)
         {
             SelectAction();
@@ -59,48 +62,44 @@ public class ShadowGuy : MonoBehaviour
         {
             AttackNFollow();
         }
+        else if(action == 2)
+        {
+            WaveAttack();
+        }
+        else if(action == 3)
+        {
+            actionCompleted = true;
+        }
     }
 
     public void SelectAction()
     {
-        action = Random.Range(1, 4);
+        attackAnim.SetBool("Attack", false);
+        if (action == 3)
+            action = Random.Range(1, 3);
+        else
+            action = Random.Range(1, 4);
         Debug.Log(action);
+        timer = 0;
     }
 
     void AttackNFollow()
     {
         target = FindObjectOfType<Player>().transform;
-        minDistance = 2;
+        minDistance = 3;
         if (Vector3.Distance(target.position, transform.position) >= minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            attackAnim.SetBool("Attack", false);
         }
         else
         {
-            if((target.position.x - transform.position.x) >= 0.01 && (target.position.y - transform.position.y) >= 0.01)
+            attackAnim.SetBool("Attack", true);
+            if (timer >= 0.5)
             {
-                attackAnim.SetFloat("X", -1);
-                attackAnim.SetFloat("Y", 1);
                 actionCompleted = true;
             }
-            else if((target.position.x - transform.position.x) <= -0.01 && (target.position.y - transform.position.y) <= -0.01)
-            {
-                attackAnim.SetFloat("X", 1);
-                attackAnim.SetFloat("Y", -1);
-                actionCompleted = true;
-            }
-            else if((target.position.x - transform.position.x) >= 0.01 && (target.position.y - transform.position.y) <= -0.01)
-            {
-                attackAnim.SetFloat("X", -1);
-                attackAnim.SetFloat("Y", -1);
-                actionCompleted = true;
-            }
-            else if((target.position.x - transform.position.x) <= -0.01 && (target.position.y - transform.position.y) >= 0.01)
-            {
-                attackAnim.SetFloat("X", 1);
-                attackAnim.SetFloat("Y", 1);
-                actionCompleted = true;
-            }
+
         }
     }
 
@@ -115,19 +114,24 @@ public class ShadowGuy : MonoBehaviour
         else
         {
             //attack
+            actionCompleted = true;
         }
     }
 
     void SummonReinforcements()
     {
+        target = FindObjectOfType<Player>().transform;
         Instantiate(tentacle, target.position, Quaternion.identity);
-        actionCompleted = true;
+        actionCompleted = true; 
     }
 
     public void StartBattle()
     {
-        animator.SetTrigger("Entrance");
+        timer = 0;
         speed = 2;
-        SelectAction();
+        animator.SetBool("Entrance", true);
+        if(timer >= 0.5)
+            animator.SetBool("Entrance", false);
+        actionCompleted = true;
     }
 }

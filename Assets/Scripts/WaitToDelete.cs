@@ -7,7 +7,7 @@ public class WaitToDelete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Delete", 1f);
+        Invoke(nameof(Delete), 1f);
     }
 
     void Delete()

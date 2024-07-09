@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class EnemyHealthManager : MonoBehaviour
@@ -18,6 +19,11 @@ public class EnemyHealthManager : MonoBehaviour
     public Player player;
     public bool explosive = false;
     public Animator animator;
+    public string level;
+    public Save save;
+    public GameObject loadingScreen;
+    public Slider slider;
+    public bool finalBoss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +50,11 @@ public class EnemyHealthManager : MonoBehaviour
             {
                 player.exp += Random.Range(50, 250);
                 Instantiate(loot, transform.position, transform.rotation);
+                if(finalBoss)
+                {
+                    StartCoroutine(LoadAsync(level));
+                    save.StatsReset();
+                }
                 Destroy(gameObject);
             }
         }
@@ -97,5 +108,17 @@ public class EnemyHealthManager : MonoBehaviour
     {
         Instantiate(loot, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+
+    IEnumerator LoadAsync(string level)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(level);
+
+        while (operation.isDone == false)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
+        }
     }
 }
