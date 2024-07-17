@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HurtPlayer : MonoBehaviour
+public class HurtPlayerCircle : MonoBehaviour
 {
     private HealthManager health;
 
@@ -18,6 +18,8 @@ public class HurtPlayer : MonoBehaviour
     public bool mirrorShield = false;
 
     public Player player;
+
+    public Collider2D Hitcollider;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,15 @@ public class HurtPlayer : MonoBehaviour
             }
         }*/
 
+        if(player.isRolling)
+        {
+            Hitcollider.isTrigger = true;
+        }
+        else
+        {
+            Hitcollider.isTrigger = false;
+        }
+
         if (isTouching && health.canTakeDamage)
         {
                 waitToHurt -= Time.deltaTime;
@@ -54,14 +65,11 @@ public class HurtPlayer : MonoBehaviour
     {
         if (other.collider.CompareTag("Player") && health.canTakeDamage)
         {
-            //Destroy(other.gameObject);
-            //other.gameObject.SetActive(false);
-            health.HurtPlayer(damage * health.damageResitance, enemy);
-            if (explosive)
-            {
-                enemy.currentHealth = 0;
-            }
-            //reloading = true;
+                health.HurtPlayer(damage * health.damageResitance, enemy);
+                if (explosive)
+                {
+                    enemy.currentHealth = 0;
+                }
         }
     }
 
@@ -80,5 +88,10 @@ public class HurtPlayer : MonoBehaviour
             isTouching = false;
             waitToHurt = 2f;
         }
+    }
+
+    private void ReActivate()
+    {
+        Hitcollider.isTrigger = false;
     }
 }

@@ -12,8 +12,7 @@ public class ShadowGuy : MonoBehaviour
     [SerializeField]
     private Transform center;
 
-    [SerializeField]
-    private bool actionCompleted;
+    public bool actionCompleted;
 
     public int action = 1;
 
@@ -23,6 +22,7 @@ public class ShadowGuy : MonoBehaviour
     public float minDistance;
 
     public GameObject tentacle;
+    public GameObject waveCircle;
 
     private float timer = 0;
 
@@ -74,6 +74,7 @@ public class ShadowGuy : MonoBehaviour
 
     public void SelectAction()
     {
+        waveCircle.SetActive(false);
         attackAnim.SetBool("Attack", false);
         if (action == 3)
             action = Random.Range(1, 3);
@@ -106,15 +107,16 @@ public class ShadowGuy : MonoBehaviour
     void WaveAttack()
     {
         target = center;
-        minDistance = 0;
+        minDistance = 0.01f;
         if (Vector3.Distance(target.position, transform.position) >= minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else
         {
-            //attack
-            actionCompleted = true;
+            waveCircle.SetActive(true);
+            action = 4;
+            Invoke("SelectAction", 2.9f);
         }
     }
 

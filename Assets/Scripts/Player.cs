@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private readonly float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
+    public bool isRolling = false;
 
     public int gold;
 
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isRolling", true);
             health.canTakeDamage = false;
+            isRolling = true;
             speed *= 1.5f;
             Invoke(nameof(Roll), 0.33f);
         }
@@ -95,5 +97,6 @@ public class Player : MonoBehaviour
         animator.SetBool("isRolling", false);
         health.canTakeDamage = true;
         speed = currentSpeed;
+        isRolling = false;
     }
 }

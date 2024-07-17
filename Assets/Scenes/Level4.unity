@@ -962,10 +962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357f2cd6f15d57a44ad0ae7d1dd31810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Hub
+  level: Level5
   player: {fileID: 1265445210}
-  save: 0
-  reset: 1
+  save: 1
+  reset: 0
+  titleScreen: 0
   loadingScreen: {fileID: 1243773490}
   slider: {fileID: 568462498}
 --- !u!4 &1733177618

@@ -112,6 +112,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     IEnumerator LoadAsync(string level)
     {
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(level);
 
         while (operation.isDone == false)
