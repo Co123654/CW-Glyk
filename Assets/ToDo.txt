@@ -1,5 +1,14 @@
-Different enemy types*
-Enemy ai
-Level design
-Special events (i.e a room with a healing pool in the middle)
-Enemy attacks*
+
+	//Enemies get hit out of bounds
+	//Fix some room layouts to avoid immediate damage
+	//Coin particles for hidden room
+	Viual feedback for the switch
+	Actually lock the doors for bosses
+	Item tooltips
+	Make fireball work
+	Upgrade dash/longer dash
+	Improve minotaur (ai/attacks)
+	Speed (the game is supposed to feel slow and deliberate, but maybe increasing the modifier for the rabbit's foot could work)
+	Item not picking up (no clue how to fix)
+	Mouse control attack direction (no clue)
+	More checkpoints

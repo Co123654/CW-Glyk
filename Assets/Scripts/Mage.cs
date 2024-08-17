@@ -44,8 +44,11 @@ public class Mage : MonoBehaviour
 
         if (minotaurHealthMan.currentHealth <= 0)
         {
-            animator.SetTrigger("Dead");
-            Invoke(nameof(Destroy), 1.5f);
+            this.transform.position = new Vector3(1257.5f, 12, 0);
+            action = 4;
+            speed = 0;
+            //animator.SetTrigger("Dead");
+            //Invoke(nameof(Destroy), 1.5f);
             return;
         }
 
@@ -131,6 +134,7 @@ public class Mage : MonoBehaviour
 
     void Destroy()
     {
-        Destroy(this.gameObject);
+        Destroy(Fireball);
+        //Destroy(this.gameObject);
     }
 }

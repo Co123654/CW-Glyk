@@ -24,10 +24,11 @@ public class MageBullet : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        /*if(target = null)
+        if (target.position == null)
         {
             Destroy(gameObject);
-        }*/
+        }
+        Debug.Log(target.position);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -52,8 +53,6 @@ public class MageBullet : MonoBehaviour
                 enemyHealth.HurtEnemy(10);
                 Destroy(gameObject);
             }
-            //Check if can damage mage
-            //Damage mage
         }
     }
 }
