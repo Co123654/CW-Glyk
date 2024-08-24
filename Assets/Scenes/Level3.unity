@@ -28937,6 +28937,7 @@ MonoBehaviour:
   titleScreen: 0
   loadingScreen: {fileID: 1743800260}
   slider: {fileID: 1743800259}
+  bossKilled: 0
 --- !u!61 &1405338125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53816,6 +53817,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1695159027}
+    - target: {fileID: 2816096245958328638, guid: 0af892e7a9792d14aaa786d21ba79acf,
+        type: 3}
+      propertyPath: areaTransition
+      value: 
+      objectReference: {fileID: 1405338123}
+    - target: {fileID: 7209618522281038751, guid: 0af892e7a9792d14aaa786d21ba79acf,
+        type: 3}
+      propertyPath: boss
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7209618522281038751, guid: 0af892e7a9792d14aaa786d21ba79acf,
         type: 3}
       propertyPath: loot

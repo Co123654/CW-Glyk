@@ -11,6 +11,8 @@ public class Lever : MonoBehaviour
     [SerializeField]
     private GameObject Wall;
 
+    public Camera cam;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
@@ -21,6 +23,7 @@ public class Lever : MonoBehaviour
 
     void PullTheLeverKronk()
     {
+        cam.GetComponent<Shake>().start = true;
         LeverOff.SetActive(false);
         LeverOn.SetActive(true);
         Wall.SetActive(false);

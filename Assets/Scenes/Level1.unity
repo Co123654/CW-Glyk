@@ -2532,6 +2532,7 @@ MonoBehaviour:
   titleScreen: 0
   loadingScreen: {fileID: 1598553136}
   slider: {fileID: 358835313}
+  bossKilled: 0
 --- !u!61 &1249021335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14909,6 +14910,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1190101778}
     m_Modifications:
+    - target: {fileID: 2222603166470993892, guid: b04ee2dedbc0eb245ad5c91d699d7459,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1735431184}
     - target: {fileID: 2279642314822131762, guid: b04ee2dedbc0eb245ad5c91d699d7459,
         type: 3}
       propertyPath: m_Name
@@ -14989,6 +14995,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1589862832}
+    - target: {fileID: 5691516199807402866, guid: b04ee2dedbc0eb245ad5c91d699d7459,
+        type: 3}
+      propertyPath: areaTransition
+      value: 
+      objectReference: {fileID: 1249021333}
     - target: {fileID: 9174341018441098915, guid: b04ee2dedbc0eb245ad5c91d699d7459,
         type: 3}
       propertyPath: player

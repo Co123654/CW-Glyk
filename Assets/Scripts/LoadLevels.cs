@@ -20,6 +20,8 @@ public class LoadLevels : MonoBehaviour
 
     public GameObject loadingScreen;
     public Slider slider;
+
+    public bool bossKilled;
     private void Start()
     {
         if(titleScreen)
@@ -59,8 +61,11 @@ public class LoadLevels : MonoBehaviour
         {
             if(save)
                 player.StatSave();
-            loadingScreen.SetActive(true);
-            Invoke(nameof(LoadLevel), 1f);
+            if (bossKilled)
+            {
+                loadingScreen.SetActive(true);
+                Invoke(nameof(LoadLevel), 1f);
+            }
         }
     }
 }

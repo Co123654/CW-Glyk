@@ -969,6 +969,7 @@ MonoBehaviour:
   titleScreen: 0
   loadingScreen: {fileID: 1243773490}
   slider: {fileID: 568462498}
+  bossKilled: 1
 --- !u!4 &1733177618
 Transform:
   m_ObjectHideFlags: 0

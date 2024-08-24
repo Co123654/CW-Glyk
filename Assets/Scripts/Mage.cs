@@ -28,6 +28,8 @@ public class Mage : MonoBehaviour
 
     public float minimumDistance;
 
+    public GameObject areaTransition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class Mage : MonoBehaviour
         if (minotaurHealthMan.currentHealth <= 0)
         {
             this.transform.position = new Vector3(1257.5f, 12, 0);
+            areaTransition.GetComponent<LoadLevels>().bossKilled = true;
             action = 4;
             speed = 0;
             //animator.SetTrigger("Dead");

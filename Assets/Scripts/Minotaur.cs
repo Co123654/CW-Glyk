@@ -24,6 +24,8 @@ public class Minotaur : MonoBehaviour
 
     public float minimumDistance;
 
+    public GameObject areaTransition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class Minotaur : MonoBehaviour
     {
         if(minotaurHealthMan.currentHealth <= 0)
         {
+            areaTransition.GetComponent<LoadLevels>().bossKilled = true;
+            Debug.Log("AAAAAAAAAAHHHHHHH");
             animator.SetTrigger("Dead");
             Invoke(nameof(Destroy), 1.5f);
             return;

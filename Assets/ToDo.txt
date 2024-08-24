@@ -2,8 +2,8 @@
 	//Enemies get hit out of bounds
 	//Fix some room layouts to avoid immediate damage
 	//Coin particles for hidden room
-	Viual feedback for the switch
-	Actually lock the doors for bosses
+	//Viual feedback for the switch
+	//Actually lock the doors for bosses
 	Item tooltips
 	Make fireball work
 	Upgrade dash/longer dash

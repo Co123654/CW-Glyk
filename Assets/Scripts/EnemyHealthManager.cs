@@ -24,6 +24,7 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public bool finalBoss = false;
+    public bool boss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,10 @@ public class EnemyHealthManager : MonoBehaviour
                     StartCoroutine(LoadAsync(level));
                     save.StatsReset();
                 }
-                Destroy(gameObject);
+                if (!boss)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         if (flashActive)
