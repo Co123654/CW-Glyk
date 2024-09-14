@@ -4,7 +4,8 @@
 	//Coin particles for hidden room
 	//Viual feedback for the switch
 	//Actually lock the doors for bosses
-	Item tooltips
+	//Item tooltips
+	Fix mage boss giving infinite xp
 	Make fireball work
 	Upgrade dash/longer dash
 	Improve minotaur (ai/attacks)
