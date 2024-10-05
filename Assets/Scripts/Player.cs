@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isRolling", true);
             health.canTakeDamage = false;
             isRolling = true;
-            speed *= 1.5f;
+            speed *= 1.75f;
             Invoke(nameof(Roll), 0.33f);
         }
 
@@ -84,7 +84,51 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isAttacking == false)
         {
-            Debug.Log(Input.mousePosition/10);
+            Vector3 mousePos = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)/10;
+            mousePos.z = 0;
+            Debug.Log(mousePos);
+
+            animator.SetFloat("lastY", mousePos.y);
+            animator.SetFloat("lastX", mousePos.x);
+
+            /*if(mousePos.y >= 0.01)
+            {
+                animator.SetFloat("lastY", 1);
+            }
+            else
+            {
+                animator.SetFloat("lastY", -1);
+            }
+
+            if(mousePos.x >= 0.01)
+            {
+                animator.SetFloat("lastX", 1);
+            }
+            else
+            {
+                animator.SetFloat("lastX", -1);
+            }
+
+            switch ((mousePos.x, mousePos.y))
+            {
+                case (0, >= -0.01f):
+                    break;
+                case (>= -0.01f, 0):
+                    break;
+                case (<= 0.01f, 0):
+                    break;
+                case (0, <= 0.01f):
+                    break;
+                case ( >= -0.01f, <= 0.01f):
+                    break;
+                case ( >= -0.01f, >= -0.01f):
+                    break;
+                case ( <= 0.01f, <= 0.01f):
+                    break;
+                case ( <= 0.01f, >= -0.01f):
+                    break;
+
+            }*/
             attackCounter = attackTime;
             animator.SetBool("isAttacking", true);
             animator.SetInteger("Weapon", 0);

@@ -26,6 +26,10 @@ public class Minotaur : MonoBehaviour
 
     public GameObject areaTransition;
 
+    public Camera cam;
+
+    private bool roar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,9 +112,11 @@ public class Minotaur : MonoBehaviour
 
     void Taunt()
     {
-        //Play taunt animation
-        //Return
         animator.SetTrigger("Gesturing");
+        //activate camera shake
+        cam.GetComponent<Shake>().start = true;
+        //knockback player within a specific range and damage a little
+        roar = true;
         actionCompleted = true;
     }
 
@@ -128,5 +134,15 @@ public class Minotaur : MonoBehaviour
     void Destroy()
     {
         Destroy(this.gameObject);
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Player") && roar)
+        {
+            other.GetComponent<HealthManager>().HurtPlayer(1, minotaurHealthMan);
+            Vector2 difference = other.transform.position - transform.position;
+            other.transform.position = new Vector2(transform.position.x + difference.x / 1.5f, transform.position.y + difference.y / 1.5f);
+            roar = false;
+        }
     }
 }

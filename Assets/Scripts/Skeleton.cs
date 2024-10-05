@@ -16,9 +16,12 @@ public class Skeleton : MonoBehaviour
     [SerializeField]
     private float minRange;
 
+    Vector2 lastvalidlocation;
+
     // Start is called before the first frame update
     void Start()
     {
+        lastvalidlocation = origin.position;
         animator = GetComponent<Animator>();
         target = FindObjectOfType<Player>().transform;
     }
@@ -30,6 +33,7 @@ public class Skeleton : MonoBehaviour
             FollowPlayer();
         else if(Vector3.Distance(target.position, transform.position) >= maxRange)
             GoHome();
+        lastvalidlocation = new Vector2(transform.position.x, transform.position.y);
 
     }
 
@@ -57,8 +61,17 @@ public class Skeleton : MonoBehaviour
     {
         if(other.CompareTag("Attack"))
         {
+            lastvalidlocation = new Vector2(transform.position.x, transform.position.y);
             Vector2 difference = transform.position - other.transform.position;
             transform.position = new Vector2(transform.position.x + difference.x / 1.5f, transform.position.y + difference.y / 1.5f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Walls"))
+        {
+            transform.position = lastvalidlocation;
         }
     }
 }

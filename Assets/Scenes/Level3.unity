@@ -26932,21 +26932,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2163338116402119994, guid: cfc00077ebca04f489aa9229ed4074e2,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3817000904599472040, guid: cfc00077ebca04f489aa9229ed4074e2,
         type: 3}
       propertyPath: origin
       value: 
       objectReference: {fileID: 370963564}
-    - target: {fileID: 5883026808915313442, guid: cfc00077ebca04f489aa9229ed4074e2,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.41210914
-      objectReference: {fileID: 0}
     - target: {fileID: 6626864757902631805, guid: cfc00077ebca04f489aa9229ed4074e2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -26961,11 +26951,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fireball 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141450745829876973, guid: cfc00077ebca04f489aa9229ed4074e2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -25,6 +25,7 @@ public class EnemyHealthManager : MonoBehaviour
     public Slider slider;
     public bool finalBoss = false;
     public bool boss = false;
+    bool expgivenonce;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,13 @@ public class EnemyHealthManager : MonoBehaviour
             }
             else
             {
-                player.exp += Random.Range(50, 250);
+                if (boss && !expgivenonce)
+                {
+                    player.exp += 1000;
+                    expgivenonce = true;
+                }
+                else if (!boss && !expgivenonce)
+                    player.exp += Random.Range(50, 250);
                 Instantiate(loot, transform.position, transform.rotation);
                 if(finalBoss)
                 {

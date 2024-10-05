@@ -10,6 +10,7 @@ TagManager:
   - Drop
   - Minotaur
   - Mage
+  - Walls
   layers:
   - Default
   - TransparentFX
