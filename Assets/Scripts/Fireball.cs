@@ -35,20 +35,12 @@ public class Fireball : MonoBehaviour
 
     public void FollowPlayer()
     {
-        animator.SetBool("isMoving", true);
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
     public void GoHome()
     {
-        animator.SetFloat("Move X", (origin.position.x - transform.position.x));
-        animator.SetFloat("Move Y", (origin.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, origin.position, speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, origin.position) == 0)
-        {
-            animator.SetBool("isMoving", false);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -47,7 +47,7 @@ public class AreaTransitions : MonoBehaviour
         if(bossTrigger && !mageFight)
         {
             minotaur.bossHasStarted = true;
-            minotaur.SelectAction();
+            minotaur.action = 2;
         }
         else if(!bossTrigger && !mageFight) 
         {

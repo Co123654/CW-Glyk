@@ -55,7 +55,6 @@ public class Mage : MonoBehaviour
             return;
         }
 
-        animator.SetInteger("Health", minotaurHealthMan.currentHealth);
         if(actionCompleted)
         {
             StopAllCoroutines();
@@ -77,10 +76,6 @@ public class Mage : MonoBehaviour
                     break;
             }
         }
-
-        animator.SetBool("isMoving", true);
-        animator.SetFloat("MoveX", (target.position.x - transform.position.x));
-        animator.SetFloat("MoveY", (target.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 

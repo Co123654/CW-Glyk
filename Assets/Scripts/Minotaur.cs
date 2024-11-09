@@ -50,7 +50,6 @@ public class Minotaur : MonoBehaviour
             return;
         }
 
-        animator.SetInteger("Health", minotaurHealthMan.currentHealth);
         if(actionCompleted)
         {
             SelectAction();
@@ -76,7 +75,7 @@ public class Minotaur : MonoBehaviour
         if(action == 1)
         {
             Patrol();
-            endPatrol = Random.Range(1, 50);
+            endPatrol = Random.Range(1, 25);
         }
         else if(action == 2)
         {
@@ -90,7 +89,7 @@ public class Minotaur : MonoBehaviour
 
     public void SelectAction()
     {
-        action = Random.Range(2, 50);
+        action = Random.Range(1, 25);
         actionCompleted = false;
     }
 
@@ -101,8 +100,6 @@ public class Minotaur : MonoBehaviour
         //Randomly decide to return
         //Return
         animator.SetBool("isMoving", true);
-        animator.SetFloat("MoveX", (target.position.x - transform.position.x));
-        animator.SetFloat("MoveY", (target.position.y - transform.position.y));
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         if(endPatrol == Random.Range(1,50) && bossHasStarted)
         {
@@ -114,7 +111,7 @@ public class Minotaur : MonoBehaviour
     {
         animator.SetTrigger("Gesturing");
         //activate camera shake
-        cam.GetComponent<Shake>().start = true;
+        //cam.GetComponent<Shake>().start = true;
         //knockback player within a specific range and damage a little
         roar = true;
         actionCompleted = true;
@@ -127,6 +124,14 @@ public class Minotaur : MonoBehaviour
         else
         {
             animator.SetTrigger("Attacking");
+            if(playerTarget.position.x - transform.position.x <= 0)
+            {
+                animator.SetFloat("MoveX", -1);
+            }
+            else
+            {
+                animator.SetFloat("MoveX", 1);
+            }
             Invoke(nameof(SelectAction), 1.6f);
         }
     }

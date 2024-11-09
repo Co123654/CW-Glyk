@@ -9,8 +9,8 @@
 	//Upgrade dash/longer dash
 	//Make the quit button work
 	//Make fireball work
-	Improve minotaur (ai/attacks)
-	Speed (the game is supposed to feel slow and deliberate, but maybe increasing the modifier for the rabbit's foot could work)
+	//Improve minotaur (ai/attacks)
+	//Speed (the game is supposed to feel slow and deliberate, but maybe increasing the modifier for the rabbit's foot could work)
 	Item not picking up (no clue how to fix)
 	Mouse control attack direction (no clue)
 	More checkpoints

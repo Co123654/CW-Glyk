@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public TMP_Text goldText;
 
     private readonly float attackTime = 0.25f;
-    private float attackCounter = 0.25f;
+    private float attackCounter = 0.5f;
     private bool isAttacking = false;
     public bool isRolling = false;
 
@@ -87,9 +87,10 @@ public class Player : MonoBehaviour
             Vector3 mousePos = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)/10;
             mousePos.z = 0;
             Debug.Log(mousePos);
+            
+            //animator.SetFloat("lastY", mousePos.y);
+            //animator.SetFloat("lastX", mousePos.x);
 
-            animator.SetFloat("lastY", mousePos.y);
-            animator.SetFloat("lastX", mousePos.x);
 
             /*if(mousePos.y >= 0.01)
             {
@@ -131,7 +132,6 @@ public class Player : MonoBehaviour
             }*/
             attackCounter = attackTime;
             animator.SetBool("isAttacking", true);
-            animator.SetInteger("Weapon", 0);
             isAttacking = true;
         }
     }
